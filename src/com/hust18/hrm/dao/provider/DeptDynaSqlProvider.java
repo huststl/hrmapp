@@ -2,7 +2,6 @@ package com.hust18.hrm.dao.provider;
 
 import com.hust18.hrm.domain.Dept;
 import com.hust18.hrm.domain.Job;
-import com.hust18.hrm.domain.User;
 import org.apache.ibatis.jdbc.SQL;
 
 import java.util.Map;
