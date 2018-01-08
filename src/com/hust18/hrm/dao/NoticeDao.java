@@ -4,6 +4,7 @@ import com.hust18.hrm.dao.provider.NoticeDynaSqlProvider;
 import com.hust18.hrm.domain.Notice;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.mapping.FetchType;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
@@ -20,6 +21,9 @@ public interface NoticeDao {
             fetchType = FetchType.EAGER))
     })
     List<Notice> selectByPage(Map<String,Object> params);
+
+    @SelectProvider(type = NoticeDynaSqlProvider.class,method = "count")
+    Integer count(Map<String,Object> params);
 
     @Select("select * from "+NOTICETABLE+" where ID = #{id}")
     Notice selectById(int id);
