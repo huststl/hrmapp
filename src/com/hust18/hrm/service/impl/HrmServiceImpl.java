@@ -158,7 +158,7 @@ public class HrmServiceImpl implements HrmService {
     @Transactional(readOnly = true)
     @Override
     public List<Job> findAllJob() {
-        return jobDao.seleAllJob();
+        return jobDao.selectAllJob();
     }
 
     @Override
