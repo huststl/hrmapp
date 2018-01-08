@@ -75,28 +75,28 @@ public class UserDynaSqlProvider {
 		}.toString();
 	}
 	// 动态更新
-		public String updateUser(final User user){
-			
-			return new SQL(){
-				{
-					UPDATE(USERTABLE);
-					if(user.getUsername() != null){
-						SET(" username = #{username} ");
-					}
-					if(user.getLoginname() != null){
-						SET(" loginname = #{loginname} ");
-					}
-					if(user.getPassword()!= null){
-						SET(" password = #{password} ");
-					}
-					if(user.getStatus()!= null){
-						SET(" status = #{status} ");
-					}
-					if(user.getCreateDate()!= null){
-						SET(" create_date = #{createDate} ");
-					}
-					WHERE(" id = #{id} ");
+	public String updateUser(final User user){
+
+		return new SQL(){
+			{
+				UPDATE(USERTABLE);
+				if(user.getUsername() != null){
+					SET(" username = #{username} ");
 				}
-			}.toString();
-		}
+				if(user.getLoginname() != null){
+					SET(" loginname = #{loginname} ");
+				}
+				if(user.getPassword()!= null){
+					SET(" password = #{password} ");
+				}
+				if(user.getStatus()!= null){
+					SET(" status = #{status} ");
+				}
+				if(user.getCreateDate()!= null){
+					SET(" create_date = #{createDate} ");
+				}
+				WHERE(" id = #{id} ");
+			}
+		}.toString();
+	}
 }
