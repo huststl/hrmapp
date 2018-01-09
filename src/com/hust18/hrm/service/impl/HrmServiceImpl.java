@@ -130,7 +130,7 @@ public class HrmServiceImpl implements HrmService {
     }
     @Transactional(readOnly = true)
     @Override
-    public List<Dept> findAllDepy() {
+    public List<Dept> findAllDept() {
         return deptDao.selectAllDept();
     }
 

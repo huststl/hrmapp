@@ -68,7 +68,7 @@ public interface HrmService {
     //获取所有部门，分页查询
 
     List<Dept> findDept(Dept dept,PageModel pageModel);
-    List<Dept> findAllDepy();
+    List<Dept> findAllDept();
     void removeDeptById(Integer id);
     void addDept(Dept dept);
     Dept findDeptById(Integer id);//查询
