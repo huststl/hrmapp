@@ -8,7 +8,7 @@ import java.util.Date;
 public class Document implements Serializable {
     private int id;
     private String title;//标题
-    private String filename;//文件名
+    private String fileName;//文件名
     private MultipartFile file;//文件
     private String remark;//描述
     private Date createDate;//上传时间
@@ -34,12 +34,12 @@ public class Document implements Serializable {
         this.title = title;
     }
 
-    public String getFilename() {
-        return filename;
+    public String getFileName() {
+        return fileName;
     }
 
-    public void setFilename(String filename) {
-        this.filename = filename;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     public MultipartFile getFile() {
