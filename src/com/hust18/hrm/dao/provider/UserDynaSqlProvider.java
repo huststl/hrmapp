@@ -11,7 +11,7 @@ import static com.hust18.hrm.util.common.HrmConstants.USERTABLE;
 
 public class UserDynaSqlProvider {
 	// 分页动态查询
-	public String selectWhitParams(final Map<String, Object> params){
+	public String selectWhitParam(final Map<String, Object> params){
 		String sql =  new SQL(){
 			{
 				SELECT("*");
@@ -40,7 +40,7 @@ public class UserDynaSqlProvider {
 			{
 				SELECT("count(*)");
 				FROM(USERTABLE);
-				if(null != params.get("user")){
+				if(params.get("user") != null){
 					User user = (User)params.get("user");
 					if(user.getUsername() != null && !user.getUsername().equals("")){
 						WHERE(" username LIKE CONCAT ('%',#{user.username},'%') ");

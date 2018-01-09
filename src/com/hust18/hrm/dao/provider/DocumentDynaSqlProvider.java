@@ -11,7 +11,7 @@ import static com.hust18.hrm.util.common.HrmConstants.DOCUMENTTABLE;
 
 public class DocumentDynaSqlProvider {
 	// 分页动态查询
-	public String selectWhitParams(final Map<String, Object> params){
+	public String selectWhitParam(final Map<String, Object> params){
 		String sql =  new SQL(){
 			{
 				SELECT("*");
@@ -55,7 +55,7 @@ public class DocumentDynaSqlProvider {
 			{
 				INSERT_INTO(DOCUMENTTABLE);
 				if(document.getTitle() != null && !document.getTitle().equals("")){
-					VALUES("Documentname", "#{Documentname}");
+					VALUES("title", "#{title}");
 				}
 				if(document.getFilename() != null && !document.getFilename().equals("")){
 					VALUES("filename", "#{filename}");
@@ -63,7 +63,7 @@ public class DocumentDynaSqlProvider {
 				if(document.getRemark() != null && !document.getRemark().equals("")){
 					VALUES("remark", "#{remark}");
 				}
-				if(document.getUser() != null && !document.getUser().equals("")){
+				if(document.getUser() != null && document.getUser().getId() != null){
 					VALUES("user_id", "#{user_id}");
 				}
 			}
@@ -76,16 +76,16 @@ public class DocumentDynaSqlProvider {
 				{
 					UPDATE(DOCUMENTTABLE);
 					if(document.getTitle() != null && !document.getTitle().equals("")){
-						VALUES("Documentname", "#{Documentname}");
+						SET(" title = #{title} ");
 					}
 					if(document.getFilename() != null && !document.getFilename().equals("")){
-						VALUES("filename", "#{filename}");
+						SET(" filename = #{fileName} ");
 					}
 					if(document.getRemark() != null && !document.getRemark().equals("")){
-						VALUES("remark", "#{remark}");
+						SET("remark = #{remark}");
 					}
-					if(document.getUser() != null && !document.getUser().equals("")){
-						VALUES("user_id", "#{user_id}");
+					if(document.getUser() != null && document.getUser().getId() != null){
+						SET("user_id = #{user.id}");
 					}
 					WHERE(" id = #{id} ");
 				}

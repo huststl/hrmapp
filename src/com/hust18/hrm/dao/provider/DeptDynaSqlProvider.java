@@ -12,8 +12,7 @@ import static com.hust18.hrm.util.common.HrmConstants.JOBTABLE;
 
 public class DeptDynaSqlProvider {
 	// 分页动态查询
-	// 分页动态查询
-	public String selectWhitParams(final Map<String, Object> params){
+	public String selectWhitParam(final Map<String, Object> params){
 		String sql =  new SQL(){
 			{
 				SELECT("*");
@@ -79,4 +78,6 @@ public class DeptDynaSqlProvider {
 			}
 		}.toString();
 	}
+
+
 }
